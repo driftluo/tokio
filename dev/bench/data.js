@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1618197893032,
+  "lastUpdate": 1618197912823,
   "repoUrl": "https://github.com/driftluo/tokio",
   "entries": {
     "sync_rwlock": [
@@ -3041,6 +3041,90 @@ window.BENCHMARK_DATA = {
             "name": "uncontented_unbounded",
             "value": 703753,
             "range": "± 16081",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "david.pdrsn@gmail.com",
+            "name": "David Pedersen",
+            "username": "davidpdrsn"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "28d68798973fbfaab889d73c4da7cbc2d5a0e2f8",
+          "message": "macros: forward input arguments in `#[tokio::test]` (#3691)\n\nFixes #2388\r\n\r\nPreviously `#[tokio::test]` would error on functions that took\r\narguments. That meant other attribute macros couldn't do further\r\ntransformations on them. This changes that so arguments are forwarded as\r\nis.\r\n\r\nWhatever else might be included on the function is forwarded as well.\r\nFor example return type, generics, etc.\r\n\r\nWorth noting that this is only for compatibility with other macros.\r\n`#[test]`s that take arguments will still fail to compile.\r\n\r\nA bit odd that [trybuild] tests don't fail `#[test]` functions with\r\narguments which is why the new tests are run with `t.pass(...)`. They do\r\nactually fail if part of a real crate.\r\n\r\n[trybuild]: https://crates.io/crates/trybuild",
+          "timestamp": "2021-04-11T20:39:05+02:00",
+          "tree_id": "c50965c227bfc40bef8ff305d46f85318e04397d",
+          "url": "https://github.com/driftluo/tokio/commit/28d68798973fbfaab889d73c4da7cbc2d5a0e2f8"
+        },
+        "date": 1618197911561,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "contention_bounded",
+            "value": 6306278,
+            "range": "± 2752501",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "contention_bounded_full",
+            "value": 5945661,
+            "range": "± 1439110",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "contention_unbounded",
+            "value": 5857377,
+            "range": "± 2806442",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "create_100_000_medium",
+            "value": 571,
+            "range": "± 91",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "create_100_medium",
+            "value": 584,
+            "range": "± 109",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "create_1_medium",
+            "value": 581,
+            "range": "± 106",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "send_large",
+            "value": 78626,
+            "range": "± 7748",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "send_medium",
+            "value": 1225,
+            "range": "± 204",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontented_bounded",
+            "value": 980431,
+            "range": "± 152892",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontented_unbounded",
+            "value": 723427,
+            "range": "± 71049",
             "unit": "ns/iter"
           }
         ]
