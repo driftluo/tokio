@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1621400673035,
+  "lastUpdate": 1621400675301,
   "repoUrl": "https://github.com/driftluo/tokio",
   "entries": {
     "sync_rwlock": [
@@ -701,6 +701,60 @@ window.BENCHMARK_DATA = {
             "name": "read_uncontended",
             "value": 464,
             "range": "± 111",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "vilscrolls@gmail.com",
+            "name": "Aaron Taner",
+            "username": "mapkts"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce9ca45c92b9bd4b449f94339fbe60a4ded9ab28",
+          "message": "doc: fix invalid `#[doc(inline)]` warnings on latest nightly. (#3788)\n\nThis commit fixed issue #3787 by removing [doc(inline)] from\r\nmacro `cfg_macros` and added proper #[doc(inline)] attributes\r\nto `pub use` items inside `cfg_macros` calls.\r\n\r\nIt's probably not `cfg_macros`s responsibility to inlining public\r\nmacros, though it's conveninent to do so. Notice that in lib.rs:\r\n\r\ncfg_macros! {\r\n    /// Implementation detail of the `select!` macro. This macro is **not**\r\n    /// intended to be used as part of the public API and is permitted to\r\n    /// change.\r\n    #[doc(hidden)]\r\n    pub use tokio_macros::select_priv_declare_output_enum;\r\n\r\n    ...\r\n}\r\n\r\n`#[doc(hidden)]` and `#[doc(inline)]` are conflict with each other\r\nin the sense of correctness.\r\n\r\nFixes: #3787",
+          "timestamp": "2021-05-18T01:28:17+09:00",
+          "tree_id": "f36e7c741f022d48d4aed5da9c8b297dd57dfb45",
+          "url": "https://github.com/driftluo/tokio/commit/ce9ca45c92b9bd4b449f94339fbe60a4ded9ab28"
+        },
+        "date": 1621400674424,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "read_concurrent_contended",
+            "value": 854,
+            "range": "± 129",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "read_concurrent_contended_multi",
+            "value": 14603,
+            "range": "± 4812",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "read_concurrent_uncontended",
+            "value": 850,
+            "range": "± 119",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "read_concurrent_uncontended_multi",
+            "value": 13850,
+            "range": "± 4652",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "read_uncontended",
+            "value": 580,
+            "range": "± 77",
             "unit": "ns/iter"
           }
         ]
