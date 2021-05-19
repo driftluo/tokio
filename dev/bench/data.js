@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1621400675301,
+  "lastUpdate": 1621400681282,
   "repoUrl": "https://github.com/driftluo/tokio",
   "entries": {
     "sync_rwlock": [
@@ -3281,6 +3281,90 @@ window.BENCHMARK_DATA = {
             "name": "uncontented_unbounded",
             "value": 723427,
             "range": "± 71049",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "vilscrolls@gmail.com",
+            "name": "Aaron Taner",
+            "username": "mapkts"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce9ca45c92b9bd4b449f94339fbe60a4ded9ab28",
+          "message": "doc: fix invalid `#[doc(inline)]` warnings on latest nightly. (#3788)\n\nThis commit fixed issue #3787 by removing [doc(inline)] from\r\nmacro `cfg_macros` and added proper #[doc(inline)] attributes\r\nto `pub use` items inside `cfg_macros` calls.\r\n\r\nIt's probably not `cfg_macros`s responsibility to inlining public\r\nmacros, though it's conveninent to do so. Notice that in lib.rs:\r\n\r\ncfg_macros! {\r\n    /// Implementation detail of the `select!` macro. This macro is **not**\r\n    /// intended to be used as part of the public API and is permitted to\r\n    /// change.\r\n    #[doc(hidden)]\r\n    pub use tokio_macros::select_priv_declare_output_enum;\r\n\r\n    ...\r\n}\r\n\r\n`#[doc(hidden)]` and `#[doc(inline)]` are conflict with each other\r\nin the sense of correctness.\r\n\r\nFixes: #3787",
+          "timestamp": "2021-05-18T01:28:17+09:00",
+          "tree_id": "f36e7c741f022d48d4aed5da9c8b297dd57dfb45",
+          "url": "https://github.com/driftluo/tokio/commit/ce9ca45c92b9bd4b449f94339fbe60a4ded9ab28"
+        },
+        "date": 1621400680591,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "contention_bounded",
+            "value": 7294197,
+            "range": "± 2467909",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "contention_bounded_full",
+            "value": 6626408,
+            "range": "± 1559234",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "contention_unbounded",
+            "value": 6787984,
+            "range": "± 2343720",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "create_100_000_medium",
+            "value": 307,
+            "range": "± 5",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "create_100_medium",
+            "value": 309,
+            "range": "± 3",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "create_1_medium",
+            "value": 309,
+            "range": "± 0",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "send_large",
+            "value": 30752,
+            "range": "± 11663",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "send_medium",
+            "value": 968,
+            "range": "± 25",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontented_bounded",
+            "value": 1101192,
+            "range": "± 249505",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontented_unbounded",
+            "value": 792218,
+            "range": "± 9372",
             "unit": "ns/iter"
           }
         ]
