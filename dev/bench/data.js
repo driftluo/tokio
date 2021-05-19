@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1618197912823,
+  "lastUpdate": 1621400662447,
   "repoUrl": "https://github.com/driftluo/tokio",
   "entries": {
     "sync_rwlock": [
@@ -1327,6 +1327,54 @@ window.BENCHMARK_DATA = {
             "name": "yield_many",
             "value": 18772127,
             "range": "± 4190778",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "vilscrolls@gmail.com",
+            "name": "Aaron Taner",
+            "username": "mapkts"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "ce9ca45c92b9bd4b449f94339fbe60a4ded9ab28",
+          "message": "doc: fix invalid `#[doc(inline)]` warnings on latest nightly. (#3788)\n\nThis commit fixed issue #3787 by removing [doc(inline)] from\r\nmacro `cfg_macros` and added proper #[doc(inline)] attributes\r\nto `pub use` items inside `cfg_macros` calls.\r\n\r\nIt's probably not `cfg_macros`s responsibility to inlining public\r\nmacros, though it's conveninent to do so. Notice that in lib.rs:\r\n\r\ncfg_macros! {\r\n    /// Implementation detail of the `select!` macro. This macro is **not**\r\n    /// intended to be used as part of the public API and is permitted to\r\n    /// change.\r\n    #[doc(hidden)]\r\n    pub use tokio_macros::select_priv_declare_output_enum;\r\n\r\n    ...\r\n}\r\n\r\n`#[doc(hidden)]` and `#[doc(inline)]` are conflict with each other\r\nin the sense of correctness.\r\n\r\nFixes: #3787",
+          "timestamp": "2021-05-18T01:28:17+09:00",
+          "tree_id": "f36e7c741f022d48d4aed5da9c8b297dd57dfb45",
+          "url": "https://github.com/driftluo/tokio/commit/ce9ca45c92b9bd4b449f94339fbe60a4ded9ab28"
+        },
+        "date": 1621400661148,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "chained_spawn",
+            "value": 187606,
+            "range": "± 27995",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "ping_pong",
+            "value": 668503,
+            "range": "± 93367",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "spawn_many",
+            "value": 4571660,
+            "range": "± 965952",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "yield_many",
+            "value": 19372846,
+            "range": "± 2676851",
             "unit": "ns/iter"
           }
         ]
