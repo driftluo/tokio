@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1625798507541,
+  "lastUpdate": 1625798510708,
   "repoUrl": "https://github.com/driftluo/tokio",
   "entries": {
     "sync_rwlock": [
@@ -2241,6 +2241,60 @@ window.BENCHMARK_DATA = {
             "name": "uncontended_concurrent_single",
             "value": 951,
             "range": "± 153",
+            "unit": "ns/iter"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "zonyitoo@users.noreply.github.com",
+            "name": "ty",
+            "username": "zonyitoo"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "c306bf853a1f8423b154f17fa47926f04eecd9b4",
+          "message": "net: allow customized I/O operations for TcpStream (#3888)",
+          "timestamp": "2021-07-08T13:02:40+02:00",
+          "tree_id": "072d2de21dbb7e581c735b1368c2fa917dda99e6",
+          "url": "https://github.com/driftluo/tokio/commit/c306bf853a1f8423b154f17fa47926f04eecd9b4"
+        },
+        "date": 1625798506635,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "contended_concurrent_multi",
+            "value": 16111,
+            "range": "± 5403",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "contended_concurrent_single",
+            "value": 993,
+            "range": "± 13",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontended",
+            "value": 651,
+            "range": "± 36",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontended_concurrent_multi",
+            "value": 16338,
+            "range": "± 7049",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontended_concurrent_single",
+            "value": 993,
+            "range": "± 44",
             "unit": "ns/iter"
           }
         ]
